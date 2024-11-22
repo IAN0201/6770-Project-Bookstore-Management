@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+    <title>All Orders</title>
+    <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .welcome-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .continue-button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none; /* Removes underline from links */
+    }
+    .continue-button:hover {
+      background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+    <h1>Order Details</h1>
+    <table>
+        <tr>
+            <th>Order ID</th>
+            <th>Order Amount</th>
+            <th>Customer ID</th>
+            <th>Order Date</th>
+            <th>Payment ID</th>
+            <th>Payment Amount</th>
+            <th>Payment Date</th>
+            <th>Tracking ID</th>
+            <th>Courier Name</th>
+            <th>Product IDs</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order[0] }}</td> <!-- Order ID -->
+            <td>{{ order[1] }}</td> <!-- Order Amount -->
+            <td>{{ order[2] }}</td> <!-- Customer ID -->
+            <td>{{ order[3] }}</td> <!-- Order Date -->
+            <td>{{ order[4] }}</td> <!-- Payment ID -->
+            <td>{{ order[5] }}</td> <!-- Payment Amount -->
+            <td>{{ order[6] }}</td> <!-- Payment Date -->
+            <td>{{ order[7] }}</td> <!-- Tracking ID -->
+            <td>{{ order[8] }}</td> <!-- Courier Name -->
+            <td>{{ order[9] }}</td> <!-- Product IDs -->
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="10">No orders found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="welcome-container">
+      <a href="/index" class="continue-button">Back</a> 
+    </div>
+  </body>
+</html>

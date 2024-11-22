@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Bookstore Management System</title>
+  <style>
+    .submit-button {
+        margin-top: -10px;
+    }
+    .rectangular-container {
+    border: 2px solid #333; /* Solid border with a color of your choice */
+    padding: 7px;         /* Space inside the container */
+    margin: auto;          /* Space outside the container */
+    width: auto;          /* Width of the container */
+    height: auto;         /* Height of the container, adjust as needed */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    }
+    .link-container {
+            text-align: center;
+            margin-top: 20px;
+    }
+    .nice-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: -10px 0;
+            background-color: rgb(47, 47, 46);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+    }
+    .nice-link:hover {
+        background-color: #d7d7d7;
+        color: #fff;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .section {
+      flex-basis: auto;
+      margin-right: 20px;
+    }
+    .data-display {
+      flex-basis: auto;
+    }
+    label, input, button {
+      display: block;
+      width: 95%;
+      margin: 1px 0;
+    }
+    button {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <p style="margin-top: -20px;"></p>
+  <h2>ONLINE BOOKSTORE MANAGEMENT SYSTEM</h2>
+  <p style="margin-top: -40px;"></p>
+  <div class="container">
+    <!-- Product Management Section -->
+    <div class="section">
+      <h2>Manage Products</h2>
+      <p style="margin-top: -15px;"></p>
+      <!-- Add Product Form -->
+      <div class="rectangular-container">
+        <form method="POST" action="/addproduct">
+        <label for="product_id">Product ID:</label>
+        <input type="text" name="product_id" id="product_id" placeholder="product id" required><p style="margin-top: -10px;"></p>
+
+        <label for="product_name">Product Name:</label>
+        <input type="text" name="product_name" id="product_name" placeholder="product name" required><p style="margin-top: -10px;"></p>
+
+        <label for="product_price">Product Price:</label>
+        <input type="number" name="product_price" id="product_price" step="0.01" min="0" placeholder="product price" required><br>
+
+        <input type="submit" value="Add Product" class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+
+      <!-- Delete Product Form -->
+      <div class="rectangular-container">
+        <form method="POST" action="/delete">
+        <label for="delete_product_id">Delete Product:</label>
+        <input type="text" name="delete_product_id" id="delete_product_id" placeholder="product id" required><br>
+        <input type="submit" value="Delete Product"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <!-- Update Product Form -->
+      <div class="rectangular-container">
+        <form method="POST" action="/update">
+        <label for="update_product_id">Update Product:</label>
+        <input type="text" name="update_product_id" id="update_product_id" placeholder="product id" required><br>
+
+        <input type="submit" value="Update Product"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+
+
+      <div class="rectangular-container">
+      <form method="POST" action="/Product_id">
+        <label>Product ID:</label>
+        <input type="text" name="name" required placeholder="product id"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/Product_price">
+        <label>Price Range Low:</label>
+        <input type="number" name="low" step="0.01" required placeholder="low">
+        <label>Price Range High:</label>
+        <input type="number" name="high" step="0.01" required placeholder="high"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/add">
+        <label>Product Name:</label>
+        <input type="text" name="name" required placeholder="product name"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+    <div class="link-container">
+      <a href="all_product" class="nice-link">All Products</a>
+    </div>
+    </div>
+
+    <!-- Order Management Section -->
+    <div class="section">
+      <h2>Manage Orders</h2>
+      <!-- Update Tracking Form -->
+      <p style="margin-top: -15px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/update_tracking">
+        <label for="update_tracking">Edit Tracking:</label>
+        <input type="text" name="update_tracking" id="update_tracking" placeholder="order id" required><br>
+        <input type="submit" value="Update Tracking"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/Order_id">
+        <label>Order ID:</label>
+        <input type="text" name="name" required placeholder="order id"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/oc_id">
+        <label>Customer ID:</label>
+        <input type="text" name="name" required placeholder="customer id"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/Tracking_id">
+        <label>Tracking ID:</label>
+        <input type="text" name="name" required placeholder="tracking id"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+      <div class="link-container">
+        <a href="all_order" class="nice-link">All Orders</a>
+      </div>
+    <br> 
+      <h2>Admin History</h2>
+    <p style="margin-top: -15px;"></p>
+    <div class="rectangular-container">
+      <form method="POST" action="/Manage_Adminid">
+      <label>Admin ID:</label>
+      <input type="text" name="name" required placeholder="admin id"><br>
+      <input type="submit" value="Search"class="submit-button">
+      </form>
+    </div>
+    <p style="margin-top: -10px;"></p>
+    <div class="rectangular-container">
+      <form method="POST" action="/Manage_product">
+      <label>Product ID:</label>
+      <input type="text" name="name" required placeholder="product id"><br>
+      <input type="submit" value="Search"class="submit-button">
+      </form>
+    </div>
+    <div class="link-container">
+      <a href="all_manages_table" class="nice-link">All History</a>
+    </div>
+    </div>
+
+
+    <!-- Customer Management Section -->
+    <div class="section">
+      <h2>Manage Customers</h2>
+      <!-- Update Customer Form -->
+      <p style="margin-top: -15px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/update_customer">
+        <label for="update_customer_id">Edit Customer:</label>
+        <input type="text" name="update_customer_id" id="update_customer_id" placeholder="customer id" required><br>
+        <input type="submit" value="Update Customer"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/Customer_id">
+        <label>Customer ID:</label>
+        <input type="text" name="name" required placeholder="customer id"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/First_name">
+        <label>First name:</label>
+        <input type="text" name="name" required placeholder="first name"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/city">
+        <label>City of residence:</label>
+        <input type="text" name="name" required placeholder="city"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+      <p style="margin-top: -10px;"></p>
+      <div class="rectangular-container">
+        <form method="POST" action="/state">
+        <label>State of residence:</label>
+        <input type="text" name="name" required placeholder="state"><br>
+        <input type="submit" value="Search"class="submit-button">
+        </form>
+      </div>
+      <div class="link-container">
+        <a href="all_customer" class="nice-link">All Customers</a>
+      </div>
+    </div>
+
+    <!-- Data Display Section -->
+    <div class="data-display">
+      <h2>Data Display</h2>
+      <h3>Search Result for Product</h3>
+      <p style="margin-top: -15px;"></p>
+      <table border="1">
+        <tr>
+          <th>Product id</th>
+          <th>Product price</th>
+          <th>Product name</th>
+        </tr>
+        {% for result in products %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+            <td>{{ result[2] }}</td>
+            <!-- Add more data fields as needed -->
+        </tr>
+        {% endfor %}
+        <!-- Dynamic rows for products data display -->
+      </table><br>
+
+
+      <h3>Search Result for Orders</h3>
+      <p style="margin-top: -15px;"></p>
+      <table border="1">
+        <tr>
+          <th>Order id</th>
+          <th>Order amount</th>
+          <th>Customer id</th>
+          <th>Tracking id</th>
+          <th>Courier name</th>
+          <th>Payment id</th>
+          <th>Product id</th>
+        </tr>
+        {% for result in orders %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+            <td>{{ result[2] }}</td>
+            <td>{{ result[3] }}</td>
+            <td>{{ result[4] }}</td>
+            <td>{{ result[5] }}</td>
+            <td>{{ result[6] }}</td>
+            <!-- Add more data fields as needed -->
+        </tr>
+        {% endfor %}
+        <!-- Dynamic rows for orders Manages_tables display -->
+      </table><br>
+
+      <h3>Search Result for Customer</h3>
+      <p style="margin-top: -15px;"></p>
+      <table border="1">
+        <tr>
+          <th>Cusomer id</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Postcode</th>
+          <th>Phone</th>
+        </tr>
+        {% for result in customers %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+            <td>{{ result[2] }}</td>
+            <td>{{ result[3] }}</td>
+            <td>{{ result[4] }}</td>
+            <td>{{ result[5] }}</td>
+            <td>{{ result[6] }}</td>
+            <!-- Add more data fields as needed -->
+        </tr>
+        {% endfor %}
+        <!-- Dynamic rows for customers data display -->
+      </table><br>
+      
+      <h3>Search Result for Management History</h3>
+      <p style="margin-top: -15px;"></p>
+      <table border="1">
+        <tr>
+          <th>Admin id</th>
+          <th>Product id</th>
+        </tr>
+        {% for result in managing %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+            <!-- Add more data fields as needed -->
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+      <div class="link-container">
+        <a href="orders" class="nice-link">Data Summary</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

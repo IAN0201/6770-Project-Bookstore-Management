@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <title>Edit Customer</title>
+  <style>
+    .welcome-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .continue-button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none; /* Removes underline from links */
+    }
+    .continue-button:hover {
+      background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+  <h1>Edit Customer</h1>
+  <form action="edit_customer" method="post">
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name" value="{{ first_name }}" required>
+    
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name" value="{{ last_name }}" required>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" value="{{ city }}" required>
+
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" pattern="[A-Z]{2}" title="Enter a two-letter state code. e.g., NY, CA" value="{{ state }}" required>
+
+    <label for="postcode">Postcode:</label>
+    <input type="text" id="postcode" name="postcode" pattern="(\d{5}(-\d{4})?)" title="Enter a valid US ZIP Code. e.g. 12345 or 12345-6789" value="{{ postcode }}" required>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Enter a phone number in the format: 123-456-7890" value="{{ phone }}" required>
+    
+    <button type="submit">Save Changes</button>
+    <div class="welcome-container">
+      <a href="/index" class="continue-button">Back</a> 
+    </div>
+  </form>
+</body>
+</html>
