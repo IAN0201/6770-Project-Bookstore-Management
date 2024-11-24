@@ -1,3 +1,5 @@
+import uvicorn
+from asgiref.wsgi import WsgiToAsgi
 import os
   # accessible as a variable in index.html:
 from sqlalchemy import *
@@ -10,6 +12,7 @@ from datetime import timedelta
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask(__name__, template_folder=tmpl_dir)
+asgi_app = WsgiToAsgi(app)# Wrap the Flask app
 app.secret_key = 'your_secret_key'  # Set a secure and unique secret key
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1)
 DATABASEURI = "postgresql://ELENDB:Ipromise12345@database-2.c9yesue8cf71.us-east-2.rds.amazonaws.com:5432/ELEN"
