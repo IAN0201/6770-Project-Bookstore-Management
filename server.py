@@ -5,7 +5,6 @@ import os
 from sqlalchemy import *
 from sqlalchemy.pool import NullPool
 from flask import Flask, request, render_template, g, redirect, url_for, Response, abort
-
 from flask import Flask, session, request, redirect, url_for, render_template
 from sqlalchemy import create_engine, text
 from datetime import timedelta
@@ -17,8 +16,7 @@ app.secret_key = 'your_secret_key'  # Set a secure and unique secret key
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1)
 DATABASEURI = "postgresql://ELENDB:Ipromise12345@database-2.c9yesue8cf71.us-east-2.rds.amazonaws.com:5432/ELEN"
 
-
-# This line creates a database engine that knows how to connect to the URI above.
+# creates a database engine 
 engine = create_engine(DATABASEURI, future = true)
 conn = engine.connect()
 
