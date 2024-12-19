@@ -3,7 +3,7 @@
 **Authors:** Yiheng Liu (yl5354)      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yiming Zhao (yz4579)
 
 ## 1. Application Overview
-![alt text](image.png)
+![alt text](images/image.png)
 This application ([http://3.136.117.103:8111/](URL)) serves as a comprehensive platform for managing the trading activities and products of the University bookstore. It empowers administrators with tools to monitor, update, and streamline store operations while maintaining a user-friendly interface. Key features include:
 
 1. **User Authentication:**
