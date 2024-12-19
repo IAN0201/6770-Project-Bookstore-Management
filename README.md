@@ -58,7 +58,7 @@ This application ([http://3.136.117.103:8111/](URL)) serves as a comprehensive p
 
 ### Database Setup
 1. **Database Construction:**
-![alt text](image-4.png)
+![alt text](images/image-4.png)
    - Access the AWS RDS Console to configure a new PostgreSQL database:
      - **Instance Class:** `db.t2.micro` (Free tier eligible).
      - **Storage:** Minimal allocation to optimize cost.
@@ -66,12 +66,12 @@ This application ([http://3.136.117.103:8111/](URL)) serves as a comprehensive p
    - Ensure the database is publicly accessible for development, with security groups restricting IP-based access.
 
 2. **Table and Relationship Creation:**
-![alt text](image-3.png)
+![alt text](images/image-3.png)
    - Use SQL Pro Studio or equivalent tools to connect to the RDS database with appropriate credentials.
    - Define tables and relationships with PostgreSQL commands, incorporating constraints and references to maintain data consistency.
 
 ## 5. Backend Development (Flask)
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 1. **Project Initialization:**
    - Establish a Python virtual environment and install required dependencies:
@@ -94,14 +94,14 @@ This application ([http://3.136.117.103:8111/](URL)) serves as a comprehensive p
 
 ## 6. Frontend Development
 The front-end interface is crafted using HTML templates and styled with CSS to ensure accessibility and usability for administrative users. Responsive design principles are applied to enhance user experience across devices.
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 ---
 
 ## 7. Deployment on AWS EC2
 
 ### EC2 Instance Setup
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 1. **Instance Initialization:**
    - Launch an Ubuntu-based EC2 instance under the free tier and connect via SSH:
      ```bash
@@ -179,4 +179,4 @@ The front-end interface is crafted using HTML templates and styled with CSS to e
 
 ### Accessing the Application
 Access the fully deployed application using the public IP: [http://3.136.117.103:8111/](URL)
-![alt text](image-1.png)
+![alt text](images/image-1.png)
