@@ -23,13 +23,7 @@ conn = engine.connect()
 #routes#
 @app.before_request
 def before_request():
-  """
-  This function is run at the beginning of every web request
-  (every time you enter an address in the web browser).
-  We use it to setup a database connection that can be used throughout the request.
 
-  The variable g is globally accessible.
-  """
   try:
     g.conn = engine.connect()
   except:
@@ -39,10 +33,7 @@ def before_request():
 
 @app.teardown_request
 def teardown_request(exception):
-  """
-  At the end of the web request, this makes sure to close the database connection.
-  If you don't, the database could run out of memory!
-  """
+
   try:
     g.conn.close()
   except Exception as e:
